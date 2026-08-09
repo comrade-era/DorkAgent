@@ -1,30 +1,55 @@
 # DorkAgent
 🤖 LLM-powered agent for automated Google Dorking in bug hunting &amp; pentesting.
 
-<img src="banner.gif" alt="banner" width="1000">                   
-                                                                                                    
-## Usage
+<img src="banner.gif" alt="banner" width="1000">
+
+## Requirements
+- **Python 3.11.9** (recommended)
+
+## Installation
 1. Git clone
 ```bash
 git clone https://github.com/yee-yore/DorkAgent.git
 cd DorkAgent
 ```
 
-2. Run DorkAgent
+2. Install dependencies (recommended)
 ```bash
-python dorkagent.py
+pip install -r requirements.txt
 ```
 
-The program will:
-- **Auto-install** all required packages on first run
-- **Prompt for API keys** and save them to `.env` file automatically
+> **Note**: DorkAgent will also **auto-install** all required packages on first run if they are missing.
 
-Required API keys:
+3. Set up your API keys
+
+Copy the template and fill in your keys:
+```bash
+cp .env.example .env
+```
+
+The program will also **prompt for API keys** and save them to `.env` file automatically on first run.
+
+### Required API keys
 - `SERPER_API_KEY` - **Required** (Get from https://serper.dev/)
 - At least **one** LLM API key:
   - `OPENAI_API_KEY` - For OpenAI models (GPT-4, GPT-5, etc.)
   - `ANTHROPIC_API_KEY` - For Claude models
   - `GEMINI_API_KEY` - For Gemini models
+
+## Usage
+Run DorkAgent:
+```bash
+python dorkagent.py
+```
+
+The program will guide you through:
+1. Selecting an LLM provider (OpenAI / Anthropic / Gemini)
+2. Choosing a model dynamically from the available models
+3. Entering target domains
+4. Selecting scan depth
+5. Optionally enabling notifications
+
+Security assessment reports are saved to `./log/` with `YYMMDD_HHMMSS` timestamps.
 
 For more description
 https://medium.com/@yee-yore/llm-powered-agent-for-automated-google-dorking-dcb14d609dc2

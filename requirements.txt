@@ -1,0 +1,8 @@
+python-dotenv
+crewai
+crewai-tools
+langchain-openai
+termcolor
+prompt-toolkit
+pyfiglet
+requests
